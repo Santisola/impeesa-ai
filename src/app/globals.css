@@ -1,3 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+* {
+    font-family: 'Montserrat', sans-serif;
+    scrollbar-width: thin;
+    scrollbar-color: hsl(var(--gray-300)) transparent;
+}
+
+body {
+    display: grid;
+    grid-template-rows: auto 1fr;
+}

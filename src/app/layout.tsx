@@ -1,11 +1,7 @@
 import type { Metadata } from "next";
-import { Montserrat } from "next/font/google";
 import "./globals.css";
+import Header from "@/components/header/header";
 
-const montserrat = Montserrat({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
 
 export const metadata: Metadata = {
   title: "Impeesa AI",
@@ -20,8 +16,9 @@ export default function RootLayout({
   return (
     <html lang="es">
       <body
-        className={`${montserrat.variable} antialiased bg-slate-800 text-white`}
+        className={`antialiased min-h-screen`}
       >
+        <Header />
         {children}
       </body>
     </html>
