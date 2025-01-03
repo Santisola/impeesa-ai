@@ -1,7 +1,8 @@
 "use client";
-import { FormEvent, useContext, useState } from "react";
+import { useContext } from "react";
 import { CircleArrowUp } from 'lucide-react';
 import { ChatContext } from "@/lib/chatContext";
+import TextareaAutosize from 'react-textarea-autosize'
 
 export default function NewMessage() {
 	const {
@@ -10,6 +11,17 @@ export default function NewMessage() {
 		handleNewMessage
 	} = useContext(ChatContext);
 
+	const handleKeyDown = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
+		if (e.key === "Enter") {
+			if (e.shiftKey) {
+			  return;
+			}
+
+			e.preventDefault();
+			handleNewMessage(e);
+		}
+	}
+	
 	return (
 		<form
 			onSubmit={(ev) => handleNewMessage(ev)}
@@ -17,13 +29,15 @@ export default function NewMessage() {
 		>
 			<div className="w-full">
 				<label htmlFor="message" className="block mb-2 mt-4 sr-only">Nuevo mensaje</label>
-				<input
-					type="text"
+				<TextareaAutosize
 					id="message"
 					placeholder="Escribile a BP..."
 					value={newMessage}
+					rows={1}
+					maxRows={7}
 					onChange={(ev) => setNewMessage(ev.target.value)}
-					className="block w-full py-1 px-2 outline-none"
+					onKeyDown={handleKeyDown}
+					className="block w-full py-1 px-2 outline-none resize-none"
 				/>
 			</div>
 			<button disabled={newMessage === ''} className="disabled:opacity-15 transition-all"><CircleArrowUp size={24} /><span className="sr-only">Enviar</span></button>
