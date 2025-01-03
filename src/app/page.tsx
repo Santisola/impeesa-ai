@@ -5,7 +5,7 @@ import { ChatProvider } from "@/lib/chatContext";
 
 export default function Home() {
   return (
-    <main className="w-full h-full max-w-5xl mx-auto flex flex-col">
+    <main className="w-full h-full max-w-5xl px-4 mx-auto flex flex-col">
       <ChatProvider>
         <Chat />
         <NewMessage />

@@ -1,12 +1,22 @@
 import Markdown from 'markdown-to-jsx'
 import classes from './styles.module.css'
 
+const formattedText = (text:string) => {
+  return text.split("\n").join('<br />')
+}
+
 export default function Message({item}: {item: HistoryItem}) {
-  return (
+  return item.role === 'model' ? (
     <article
-        className={item.role === 'model' ? classes.modelMessage : classes.userMessage}
+        className={classes.modelMessage}
     >   
-        <p className='rounded-lg w-fit prose'><Markdown>{item.parts[0].text}</Markdown></p>
+        <div className='rounded-lg w-fit prose'><Markdown>{item.parts[0].text}</Markdown></div>
+    </article>
+  ) : (
+    <article
+        className={classes.userMessage}
+    >   
+        <pre className='rounded-lg w-fit prose'><Markdown>{item.parts[0].text}</Markdown></pre>
     </article>
   )
 }
