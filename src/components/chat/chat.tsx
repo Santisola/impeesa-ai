@@ -27,6 +27,7 @@ export default function Chat() {
     
     return (
         <section id="chat" ref={chatRef} className="h-full contain-strict overflow-auto px-2 mb-[2px]">
+            {history.length > 0 ?
             <ul>
                 {history.map((item: HistoryItem, index: number) => (
                     <li key={index} className="mb-4">
@@ -35,6 +36,9 @@ export default function Chat() {
                 ))}
                 {isTyping ? <li className={`${classes.typing} m-0 mb-4 w-fit`}><p></p></li> : null}
             </ul>
+            :
+            <p className="text-center">¡Escribile a BP un mensaje!<br />Puede ayudarte a planificar, resolver tus dudas y contarte historias increibles</p>
+            }
         </section>
     )
 }
