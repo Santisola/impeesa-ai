@@ -14,3 +14,7 @@ body {
     display: grid;
     grid-template-rows: auto 1fr;
 }
+
+#chat .prose > div > p:first-of-type {
+    margin-top: 0;
+}

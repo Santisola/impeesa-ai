@@ -3,7 +3,7 @@
 import React, { useCallback, useEffect, useState, createContext, useMemo, FormEvent  } from "react";
 const HISTORY_KEY = 'IMPEESA_HISTORY';
 
-const inicialChat = JSON.parse(localStorage.getItem(HISTORY_KEY) || '[]')
+const inicialChat = window?.localStorage?.getItem(HISTORY_KEY) ? JSON.parse(localStorage.getItem(HISTORY_KEY) || '[]') : []
 
 export const ChatContext = createContext<any | null>(null);
 
