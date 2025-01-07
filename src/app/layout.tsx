@@ -17,7 +17,7 @@ export default function RootLayout({
   return (
     <html lang="es">
       <body
-        className={`antialiased min-h-screen`}
+        className={`antialiased min-h-[100dvh]`}
       >
         <Header />
         {children}

@@ -24,6 +24,10 @@
     flex-shrink: 0;
 }
 
+.modelMessage > div {
+    max-width: calc(100% - 66px);
+}
+
 .modelMessage {
     display: flex;
     gap: .5rem;
@@ -42,6 +46,10 @@
     .modelMessage img {
         width: 40px;
         height: 40px;
+    }
+
+    .modelMessage > div {
+        max-width: calc(100% - 56px);
     }
 }
 
