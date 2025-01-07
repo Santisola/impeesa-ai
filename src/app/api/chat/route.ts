@@ -18,5 +18,8 @@ export async function POST(req: Request) {
     
     const result = await chat.sendMessage(body.message);
     
-    return NextResponse.json({status: 200, data: {message: result.response.text()}})
+    const response = NextResponse.json({status: 200, data: {message: result.response.text()}});
+    response.headers.set('Cache-Control', 'no-cache, no-store, must-revalidate');
+    
+    return response;
 }
