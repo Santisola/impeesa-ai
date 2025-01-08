@@ -37,7 +37,7 @@ export default function Chat() {
                 {isTyping ? <li className={`${classes.typing} m-0 mb-4 w-fit`}><p></p></li> : null}
             </ul>
             :
-            <p className="text-center">¡Escribile a BP un mensaje!<br />Puede ayudarte a planificar, resolver tus dudas y contarte historias increibles</p>
+            <div className="text-center">¡Escribile a BP un mensaje!<br />Puede ayudarte a planificar, resolver tus dudas y contarte historias increibles</div>
             }
         </section>
     )

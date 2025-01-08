@@ -7,7 +7,7 @@
 * {
     font-family: 'Montserrat', sans-serif;
     scrollbar-width: thin;
-    scrollbar-color: hsl(var(--gray-300)) transparent;
+    scrollbar-color: #ccc #fff;
 }
 
 body {
